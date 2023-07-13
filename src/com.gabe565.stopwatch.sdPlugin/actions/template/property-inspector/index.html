@@ -16,22 +16,24 @@
       <hr class="tab-separator" />
       <form id="property-inspector">
         <div type="range" class="sdpi-item">
-          <div class="sdpi-item-label" data-localize>Hold to Clear Time</div>
+          <label for="hold_clear_time" class="sdpi-item-label" data-localize
+            >Hold to Clear Time</label
+          >
           <div class="sdpi-item-value">
-            <span class="clickable" value="0">150ms</span>
-            <input type="range" min="150" max="500" name="holdToClearTime" value="300" />
-            <span class="clickable" value="100">700ms</span>
+            <span class="clickable">150ms</span>
+            <input type="range" min="150" max="500" id="hold_clear_time" name="holdToClearTime" />
+            <span class="clickable">700ms</span>
           </div>
         </div>
 
         <div type="color" class="sdpi-item">
-          <div class="sdpi-item-label" data-localize>Text Color</div>
-          <input type="color" class="sdpi-item-value" name="textColor" value="#547cff" />
+          <label for="text_color" class="sdpi-item-label" data-localize>Text Color</label>
+          <input id="text_color" type="color" class="sdpi-item-value" name="textColor" />
         </div>
 
         <div type="color" class="sdpi-item">
-          <div class="sdpi-item-label" data-localize>Frame Color</div>
-          <input type="color" class="sdpi-item-value" name="frameColor" value="#fff" />
+          <label for="frame_color" class="sdpi-item-label" data-localize>Frame Color</label>
+          <input id="frame_color" type="color" class="sdpi-item-value" name="frameColor" />
         </div>
       </form>
     </div>
