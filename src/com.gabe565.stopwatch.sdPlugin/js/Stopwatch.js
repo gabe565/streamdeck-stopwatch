@@ -15,7 +15,7 @@ class Stopwatch {
       textColor: "#fff",
     };
     (async () => {
-      const data = await fetch("actions/template/assets/frame.svg");
+      const data = await fetch("actions/template/assets/state_1.svg");
       const text = await data.text();
       this.frame = new DOMParser().parseFromString(text, "image/svg+xml");
       this.configureFrame(false);

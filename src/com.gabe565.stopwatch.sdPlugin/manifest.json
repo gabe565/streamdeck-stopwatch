@@ -4,7 +4,7 @@
   "CodePath": "index.html",
   "Description": "Stopwatch for the Stream Deck",
   "Name": "Stopwatch",
-  "Icon": "actions/template/assets/stopwatch",
+  "Icon": "actions/template/assets/icon",
   "URL": "https://github.com/gabe565/streamdeck-stopwatch",
   "Version": "1.0.0",
   "Software": {
@@ -21,18 +21,18 @@
     }
   ],
   "Category": "Stopwatch",
-  "CategoryIcon": "actions/template/assets/stopwatch",
+  "CategoryIcon": "actions/template/assets/icon",
   "Actions": [
     {
-      "Icon": "actions/template/assets/stopwatch",
+      "Icon": "actions/template/assets/icon",
       "Name": "Stopwatch",
       "Controllers": ["Keypad"],
       "States": [
         {
-          "Image": "actions/template/assets/btn_stopwatch"
+          "Image": "actions/template/assets/state_0"
         },
         {
-          "Image": "actions/template/assets/frame"
+          "Image": "actions/template/assets/state_1"
         }
       ],
       "Tooltip": "Stopwatch for the Stream Deck",
