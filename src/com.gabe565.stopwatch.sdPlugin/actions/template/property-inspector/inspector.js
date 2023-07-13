@@ -7,7 +7,11 @@ $PI.onConnected((jsn) => {
   const { payload, context } = actionInfo;
   const { settings } = payload;
 
-  Utils.setFormValue(settings, form);
+  if (Object.keys(settings).length !== 0) {
+    Utils.setFormValue(settings, form);
+  } else {
+    Utils.setFormValue(DefaultSettings, form);
+  }
 
   form.addEventListener(
     "input",

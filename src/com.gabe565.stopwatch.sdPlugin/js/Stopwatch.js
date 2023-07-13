@@ -1,19 +1,9 @@
-const States = {
-  Stopped: 0,
-  Running: 1,
-  Paused: 2,
-};
-
 class Stopwatch {
   constructor(context) {
     this.context = context;
     this.tickInterval = null;
     this.state = States.Stopped;
-    this._settings = {
-      holdToClearTime: 300,
-      frameColor: "#547cff",
-      textColor: "#fff",
-    };
+    this._settings = DefaultSettings;
     (async () => {
       const data = await fetch("actions/template/assets/state_1.svg");
       const text = await data.text();
@@ -92,6 +82,9 @@ class Stopwatch {
   }
 
   set settings(settings) {
+    if (Object.keys(settings).length === 0) {
+      return;
+    }
     this._settings = settings;
     if (this.frame) {
       this.configureFrame();
