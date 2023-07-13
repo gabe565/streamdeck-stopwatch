@@ -1,0 +1,14 @@
+{
+  "Description": "Stopwatch for the Stream Deck",
+  "Name": "Stopwatch",
+  "Category": "Stopwatch",
+  "com.gabe565.stopwatch.action": {
+    "Name": "Stopwatch",
+    "Tooltip": "Stopwatch for the Stream Deck"
+  },
+  "Localization": {
+    "Hold to Clear Time": "Hold to Clear Time",
+    "Text Color": "Text Color",
+    "Frame Color": "Frame Color"
+  }
+}

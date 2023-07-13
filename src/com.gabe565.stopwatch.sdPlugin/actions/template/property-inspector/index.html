@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>com.gabe565.stopwatch Property Inspector</title>
+    <link rel="stylesheet" href="../../../libs/css/sdpi.css" />
+  </head>
+  <body>
+    <div class="sdpi-wrapper">
+      <hr class="tab-separator" />
+      <form id="property-inspector">
+        <div type="range" class="sdpi-item">
+          <div class="sdpi-item-label" data-localize>Hold to Clear Time</div>
+          <div class="sdpi-item-value">
+            <span class="clickable" value="0">150ms</span>
+            <input type="range" min="150" max="500" name="holdToClearTime" value="300" />
+            <span class="clickable" value="100">700ms</span>
+          </div>
+        </div>
+
+        <div type="color" class="sdpi-item">
+          <div class="sdpi-item-label" data-localize>Text Color</div>
+          <input type="color" class="sdpi-item-value" name="textColor" value="#547cff" />
+        </div>
+
+        <div type="color" class="sdpi-item">
+          <div class="sdpi-item-label" data-localize>Frame Color</div>
+          <input type="color" class="sdpi-item-value" name="frameColor" value="#fff" />
+        </div>
+      </form>
+    </div>
+
+    <!-- Stream Deck Libs -->
+    <script src="../../../libs/js/constants.js"></script>
+    <script src="../../../libs/js/prototypes.js"></script>
+    <script src="../../../libs/js/timers.js"></script>
+    <script src="../../../libs/js/utils.js"></script>
+    <script src="../../../libs/js/events.js"></script>
+    <script src="../../../libs/js/api.js"></script>
+    <script src="../../../libs/js/property-inspector.js"></script>
+    <script src="../../../libs/js/dynamic-styles.js"></script>
+
+    <!-- Property Inspector Source -->
+    <script src="inspector.js"></script>
+  </body>
+</html>

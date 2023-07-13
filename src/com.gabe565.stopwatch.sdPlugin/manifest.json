@@ -1,0 +1,43 @@
+{
+  "SDKVersion": 2,
+  "Author": "Gabe Cook",
+  "CodePath": "index.html",
+  "Description": "Stopwatch for the Stream Deck",
+  "Name": "Stopwatch",
+  "Icon": "actions/template/assets/stopwatch",
+  "URL": "https://github.com/gabe565/streamdeck-stopwatch",
+  "Version": "1.0.0",
+  "Software": {
+    "MinimumVersion": "5.0"
+  },
+  "OS": [
+    {
+      "Platform": "mac",
+      "MinimumVersion": "10.11"
+    },
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "Category": "Stopwatch",
+  "CategoryIcon": "actions/template/assets/stopwatch",
+  "Actions": [
+    {
+      "Icon": "actions/template/assets/stopwatch",
+      "Name": "Stopwatch",
+      "Controllers": ["Keypad"],
+      "States": [
+        {
+          "Image": "actions/template/assets/btn_stopwatch"
+        },
+        {
+          "Image": "actions/template/assets/frame"
+        }
+      ],
+      "Tooltip": "Stopwatch for the Stream Deck",
+      "UUID": "com.gabe565.stopwatch.action",
+      "PropertyInspectorPath": "actions/template/property-inspector/index.html"
+    }
+  ]
+}

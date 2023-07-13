@@ -1,0 +1,8 @@
+.DS_Store
+.editorconfig
+.history
+.idea/
+.vscode/
+/src/DistributionTool
+__exclude
+node_modules/
