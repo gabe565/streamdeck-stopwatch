@@ -151,4 +151,14 @@ class Stopwatch {
 
     $SD.setState(this.context, this.sdState);
   }
+
+  set active(active) {
+    if (active) {
+      if (this.state === States.Running) {
+        this.beginTick();
+      }
+    } else {
+      this.stopTick();
+    }
+  }
 }

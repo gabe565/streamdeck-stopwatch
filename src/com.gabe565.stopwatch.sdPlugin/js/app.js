@@ -19,6 +19,14 @@ stopwatchAction.onKeyUp((data) => {
   newOrGetStopwatch(data).keyUp(data);
 });
 
+stopwatchAction.onWillDisappear((data) => {
+  newOrGetStopwatch(data).active = false;
+});
+
+stopwatchAction.onWillAppear((data) => {
+  newOrGetStopwatch(data).active = true;
+});
+
 const newOrGetStopwatch = ({ context, payload: { settings } }) => {
   if (!contexts[context]) {
     contexts[context] = new Stopwatch(context);
