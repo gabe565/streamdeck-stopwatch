@@ -77,7 +77,7 @@ class Stopwatch {
         }
         $SD.setState(this.context, this.sdState);
       }
-    }, this.settings.holdToClearTime);
+    }, this.settings.longPressTime);
   }
 
   configureFrame(render = true) {
