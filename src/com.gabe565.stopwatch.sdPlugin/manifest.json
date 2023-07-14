@@ -21,10 +21,10 @@
     }
   ],
   "Category": "Stopwatch",
-  "CategoryIcon": "actions/template/assets/icon",
+  "CategoryIcon": "actions/template/assets/category",
   "Actions": [
     {
-      "Icon": "actions/template/assets/icon",
+      "Icon": "actions/template/assets/action",
       "Name": "Stopwatch",
       "Controllers": ["Keypad"],
       "States": [
