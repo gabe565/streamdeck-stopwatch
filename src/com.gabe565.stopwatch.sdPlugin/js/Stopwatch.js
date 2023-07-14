@@ -83,9 +83,7 @@ class Stopwatch {
   }
 
   stopTick() {
-    if (this.tickInterval !== null) {
-      clearInterval(this.tickInterval);
-    }
+    clearInterval(this.tickInterval);
   }
 
   configureFrame(render = true) {
