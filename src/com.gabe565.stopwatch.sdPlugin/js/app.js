@@ -4,33 +4,13 @@
 
 const stopwatchAction = new Action("com.gabe565.stopwatch.action");
 
-const contexts = {};
+stopwatchAction.onDidReceiveSettings(
+  (data) => (Stopwatch.Get(data).settings = data.payload.settings),
+);
 
-stopwatchAction.onDidReceiveSettings((data) => {
-  const stopwatch = newOrGetStopwatch(data);
-  stopwatch.settings = data.payload.settings;
-});
+stopwatchAction.onKeyDown((data) => Stopwatch.Get(data).keyDown());
 
-stopwatchAction.onKeyDown((data) => {
-  newOrGetStopwatch(data).keyDown(data);
-});
+stopwatchAction.onKeyUp((data) => Stopwatch.Get(data).keyUp());
 
-stopwatchAction.onKeyUp((data) => {
-  newOrGetStopwatch(data).keyUp(data);
-});
-
-stopwatchAction.onWillDisappear((data) => {
-  newOrGetStopwatch(data).active = false;
-});
-
-stopwatchAction.onWillAppear((data) => {
-  newOrGetStopwatch(data).active = true;
-});
-
-const newOrGetStopwatch = ({ context, payload: { settings } }) => {
-  if (!contexts[context]) {
-    contexts[context] = new Stopwatch(context);
-    contexts[context].settings = settings;
-  }
-  return contexts[context];
-};
+stopwatchAction.onWillDisappear((data) => (Stopwatch.Get(data).active = false));
+stopwatchAction.onWillAppear((data) => (Stopwatch.Get(data).active = true));

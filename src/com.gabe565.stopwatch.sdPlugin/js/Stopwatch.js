@@ -1,3 +1,5 @@
+const stopwatchMap = {};
+
 class Stopwatch {
   constructor(context) {
     this.context = context;
@@ -10,6 +12,14 @@ class Stopwatch {
       this.frame = new DOMParser().parseFromString(text, "image/svg+xml");
       this.configureFrame(false);
     })();
+  }
+
+  static Get({ context, payload: { settings } }) {
+    if (!stopwatchMap[context]) {
+      stopwatchMap[context] = new Stopwatch(context);
+      stopwatchMap[context].settings = settings;
+    }
+    return stopwatchMap[context];
   }
 
   set settings(settings) {
