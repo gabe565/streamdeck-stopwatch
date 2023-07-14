@@ -14,9 +14,10 @@ class Stopwatch {
 
   set settings(settings) {
     if (Object.keys(settings).length === 0) {
-      return;
+      this._settings = DefaultSettings;
+    } else {
+      this._settings = settings;
     }
-    this._settings = settings;
     if (this.frame) {
       this.configureFrame();
     }
