@@ -1,11 +1,11 @@
 const stopwatchMap = {};
 
 class Stopwatch {
-  constructor(context) {
+  constructor({ context, payload: { settings } }) {
     this.context = context;
     this.tickInterval = null;
     this.state = States.Stopped;
-    this._settings = DefaultSettings;
+    this.settings = settings;
     (async () => {
       const data = await fetch("actions/template/assets/state_1.svg");
       const text = await data.text();
@@ -15,12 +15,11 @@ class Stopwatch {
     $SD.setState(this.context, this.sdState);
   }
 
-  static Get({ context, payload: { settings } }) {
-    if (!stopwatchMap[context]) {
-      stopwatchMap[context] = new Stopwatch(context);
-      stopwatchMap[context].settings = settings;
+  static Get(data) {
+    if (!stopwatchMap[data.context]) {
+      stopwatchMap[data.context] = new Stopwatch(data);
     }
-    return stopwatchMap[context];
+    return stopwatchMap[data.context];
   }
 
   set settings(settings) {
