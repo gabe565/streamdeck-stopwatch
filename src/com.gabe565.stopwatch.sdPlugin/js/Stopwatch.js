@@ -109,8 +109,8 @@ class Stopwatch {
 
   keyDown({ payload: { state } }) {
     this.cancelKeyUp = false;
-    this.pressTimeout = setTimeout(() => {
-      if (this.state !== States.Stopped) {
+    if (this.state !== States.Stopped) {
+      this.pressTimeout = setTimeout(() => {
         this.cancelKeyUp = true;
         if (this.settings.longPressAction === Actions.Reset) {
           this.stop();
@@ -122,8 +122,8 @@ class Stopwatch {
           }
         }
         $SD.setState(this.context, this.sdState);
-      }
-    }, this.settings.longPressTime);
+      }, this.settings.longPressTime);
+    }
   }
 
   keyUp() {
