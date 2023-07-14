@@ -69,7 +69,11 @@ class Stopwatch {
         if (this.settings.longPressAction === Actions.Reset) {
           this.stop();
         } else if (this.settings.longPressAction === Actions.Pause) {
-          this.pause();
+          if (this.state === States.Running) {
+            this.pause();
+          } else if (this.state === States.Paused) {
+            this.unpause();
+          }
         }
         $SD.setState(this.context, this.sdState);
       }
