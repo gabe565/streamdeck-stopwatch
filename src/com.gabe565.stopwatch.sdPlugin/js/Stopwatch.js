@@ -66,7 +66,12 @@ class Stopwatch {
     this.pressTimeout = setTimeout(() => {
       if (this.state !== States.Stopped) {
         this.cancelKeyUp = true;
-        this.stop();
+        if (this.settings.longPressAction === Actions.Reset) {
+          this.stop();
+        } else if (this.settings.longPressAction === Actions.Pause) {
+          this.pause();
+        }
+        $SD.setState(this.context, this.sdState);
       }
     }, this.settings.holdToClearTime);
   }
@@ -103,21 +108,26 @@ class Stopwatch {
   }
 
   keyUp() {
-    if (this.cancelKeyUp) {
-      return;
-    } else {
+    if (!this.cancelKeyUp) {
       clearTimeout(this.pressTimeout);
-    }
-
-    if (this.state === States.Stopped) {
-      this.start();
-    } else if (this.state === States.Running) {
-      this.pause();
-    } else if (this.state === States.Paused) {
-      this.unpause();
-    } else {
-      console.error(`Invalid state: ${this.state}`);
-      $SD.setState(this.context, States.Stopped);
+      if (this.state === States.Stopped) {
+        this.start();
+      } else if (this.state === States.Running) {
+        if (this.settings.shortPressAction === Actions.Pause) {
+          this.pause();
+        } else if (this.settings.shortPressAction === Actions.Reset) {
+          this.stop();
+        }
+      } else if (this.state === States.Paused) {
+        if (this.settings.shortPressAction === Actions.Pause) {
+          this.unpause();
+        } else if (this.settings.shortPressAction === Actions.Reset) {
+          this.stop();
+        }
+      } else {
+        console.error(`Invalid state: ${this.state}`);
+        $SD.setState(this.context, States.Stopped);
+      }
     }
 
     $SD.setState(this.context, this.sdState);

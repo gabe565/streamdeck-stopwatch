@@ -15,13 +15,39 @@
     <div class="sdpi-wrapper">
       <hr class="tab-separator" />
       <form id="property-inspector">
+        <div type="radio" class="sdpi-item">
+          <div class="sdpi-item-label">Short Press Action</div>
+          <div class="sdpi-item-value">
+            <span class="sdpi-item-child">
+              <input id="short_reset" type="radio" name="shortPressAction" value="reset" />
+              <label for="short_reset" class="sdpi-item-label"><span></span>Reset</label>
+            </span>
+            <span class="sdpi-item-child">
+              <input id="short_pause" type="radio" name="shortPressAction" value="pause" />
+              <label for="short_pause" class="sdpi-item-label"><span></span>Pause</label>
+            </span>
+          </div>
+        </div>
+
+        <div type="radio" class="sdpi-item">
+          <div class="sdpi-item-label">Long Press Action</div>
+          <div class="sdpi-item-value">
+            <span class="sdpi-item-child">
+              <input id="long_reset" type="radio" name="longPressAction" value="reset" />
+              <label for="long_reset" class="sdpi-item-label"><span></span>Reset</label>
+            </span>
+            <span class="sdpi-item-child">
+              <input id="long_pause" type="radio" name="longPressAction" value="pause" />
+              <label for="long_pause" class="sdpi-item-label"><span></span>Pause</label>
+            </span>
+          </div>
+        </div>
+
         <div type="range" class="sdpi-item">
-          <label for="hold_clear_time" class="sdpi-item-label" data-localize
-            >Hold to Clear Time</label
-          >
+          <label for="long_press_time" class="sdpi-item-label" data-localize>Long Press Time</label>
           <div class="sdpi-item-value">
             <span class="clickable">150ms</span>
-            <input type="range" min="150" max="500" id="hold_clear_time" name="holdToClearTime" />
+            <input type="range" min="150" max="500" id="long_press_time" name="longPressTime" />
             <span class="clickable">700ms</span>
           </div>
         </div>
