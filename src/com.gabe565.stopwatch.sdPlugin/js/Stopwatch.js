@@ -2,16 +2,14 @@ const stopwatchMap = {};
 
 class Stopwatch {
   constructor({ context, payload: { settings } }) {
+    this.template = new Template();
+    this.template
+      .load("actions/template/assets/state_1.svg")
+      .then(() => this.configureFrame(false));
     this.context = context;
     this.tickInterval = null;
     this.state = States.Stopped;
     this.settings = settings;
-    (async () => {
-      const data = await fetch("actions/template/assets/state_1.svg");
-      const text = await data.text();
-      this.frame = new DOMParser().parseFromString(text, "image/svg+xml");
-      this.configureFrame(false);
-    })();
   }
 
   static Get(data) {
@@ -27,7 +25,7 @@ class Stopwatch {
     } else {
       this._settings = settings;
     }
-    if (this.frame) {
+    if (this.template.loaded) {
       this.configureFrame();
     }
   }
@@ -68,10 +66,8 @@ class Stopwatch {
   }
 
   tick() {
-    if (this.frame) {
-      this.frame.querySelector("text").innerHTML = this.formattedTime;
-      const contents = new XMLSerializer().serializeToString(this.frame);
-      const encoded = `data:image/svg+xml;base64,${btoa(contents)}`;
+    if (this.template.loaded) {
+      const encoded = this.template.renderBase64(this.formattedTime);
       $SD.setImage(this.context, encoded, 1);
     }
   }
@@ -87,9 +83,9 @@ class Stopwatch {
   }
 
   configureFrame(render = true) {
-    if (this.frame) {
-      this.frame.querySelector("path").style.fill = this.settings.frameColor;
-      this.frame.querySelector("text").style.fill = this.settings.textColor;
+    if (this.template.loaded) {
+      this.template.setStyle("path", "fill", this.settings.frameColor);
+      this.template.setStyle("text", "fill", this.settings.textColor);
       if (render) {
         this.tick();
       }
