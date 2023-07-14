@@ -3,9 +3,23 @@ name: Build
 on: push
 
 jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm install --prefer-offline --no-audit
+      - run: npx eslint .
+      - run: npx prettier --check .
+
   build:
     name: Build
     runs-on: macos-latest
+    needs: lint
     steps:
       - uses: actions/checkout@v3
         with:
