@@ -12,6 +12,7 @@ class Stopwatch {
       this.frame = new DOMParser().parseFromString(text, "image/svg+xml");
       this.configureFrame(false);
     })();
+    $SD.setState(this.context, this.sdState);
   }
 
   static Get({ context, payload: { settings } }) {
