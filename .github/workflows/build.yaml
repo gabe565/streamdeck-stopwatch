@@ -1,0 +1,19 @@
+name: Build
+
+on: push
+
+jobs:
+  build:
+    name: Build
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - uses: AdamCarballo/streamdeck-distribution-tool@v1.0.1
+        with:
+          input: src/com.gabe565.stopwatch.sdPlugin
+      - uses: actions/upload-artifact@v3
+        with:
+          name: release
+          path: com.gabe565.stopwatch.streamDeckPlugin
