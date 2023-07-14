@@ -107,7 +107,7 @@ class Stopwatch {
     this.state = States.Running;
   }
 
-  keyDown({ payload: { state } }) {
+  keyDown() {
     this.cancelKeyUp = false;
     if (this.state !== States.Stopped) {
       this.pressTimeout = setTimeout(() => {
