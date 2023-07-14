@@ -12,7 +12,6 @@ class Stopwatch {
       this.frame = new DOMParser().parseFromString(text, "image/svg+xml");
       this.configureFrame(false);
     })();
-    $SD.setState(this.context, this.sdState);
   }
 
   static Get(data) {
@@ -37,11 +36,21 @@ class Stopwatch {
     return this._settings;
   }
 
-  get sdState() {
-    if (this.state === States.Stopped) {
-      return 0;
+  set state(state) {
+    this._state = state;
+    this.emitState();
+  }
+
+  emitState() {
+    let sdState = 0;
+    if (this.state !== States.Stopped) {
+      sdState = 1;
     }
-    return 1;
+    $SD.setState(this.context, sdState);
+  }
+
+  get state() {
+    return this._state;
   }
 
   get formattedTime() {
@@ -131,7 +140,6 @@ class Stopwatch {
             this.unpause();
           }
         }
-        $SD.setState(this.context, this.sdState);
       }, this.settings.longPressTime);
     }
   }
@@ -155,11 +163,10 @@ class Stopwatch {
         }
       } else {
         console.error(`Invalid state: ${this.state}`);
-        $SD.setState(this.context, States.Stopped);
       }
+    } else {
+      this.emitState();
     }
-
-    $SD.setState(this.context, this.sdState);
   }
 
   set active(active) {
