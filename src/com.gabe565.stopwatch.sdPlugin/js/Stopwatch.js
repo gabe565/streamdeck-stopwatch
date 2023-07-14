@@ -5,7 +5,11 @@ class Stopwatch {
     this.template = new Template();
     this.template
       .load("actions/template/assets/state_1.svg")
-      .then(() => this.configureFrame(false));
+      .then(() => this.configureFrame(false))
+      .catch((err) => {
+        $SD.showAlert(this.context);
+        console.error(err);
+      });
     this.context = context;
     this.tickInterval = null;
     this.state = States.Stopped;
@@ -157,6 +161,7 @@ class Stopwatch {
         }
       } else {
         console.error(`Invalid state: ${this.state}`);
+        $SD.showAlert(this.context);
       }
     } else {
       this.emitState();
