@@ -6,8 +6,6 @@ const stopwatchAction = new Action("com.gabe565.stopwatch.action");
 
 const contexts = {};
 
-$SD.onApplicationDidLaunch((data) => console.log(data));
-
 stopwatchAction.onDidReceiveSettings((data) => {
   const stopwatch = newOrGetStopwatch(data);
   stopwatch.settings = data.payload.settings;
