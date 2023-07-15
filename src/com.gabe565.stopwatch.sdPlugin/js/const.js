@@ -17,6 +17,6 @@ const DefaultSettings = {
   indicatorEnabled: "on",
   shortPressAction: Actions.Reset,
   longPressAction: Actions.Pause,
-  holdToClearTime: 300,
+  longPressTime: 300,
   updateInterval: 250,
 };
