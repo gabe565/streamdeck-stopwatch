@@ -26,7 +26,6 @@ class Template {
 
   moveIndicator(difference) {
     const seconds = difference / 1000;
-    console.log(seconds);
     const degrees = ((seconds / 60) % 60) * 2 * Math.PI;
     this.dom.querySelector("circle").cx.baseVal.value = Math.sin(degrees) * 24.25 + 35.75;
     this.dom.querySelector("circle").cy.baseVal.value = -1 * Math.cos(degrees) * 24.25 + 39.25;

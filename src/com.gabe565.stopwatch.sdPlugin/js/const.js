@@ -10,11 +10,12 @@ const States = {
 };
 
 const DefaultSettings = {
+  frameColor: "#547cff",
+  textColor: "#ffffff",
+  indicatorColor: "#ee4b2b",
+  indicatorEnabled: "on",
   shortPressAction: Actions.Reset,
   longPressAction: Actions.Pause,
   holdToClearTime: 300,
-  frameColor: "#547cff",
-  textColor: "#ffffff",
-  indicatorEnabled: "on",
-  indicatorColor: "#ee4b2b",
+  updateInterval: 250,
 };

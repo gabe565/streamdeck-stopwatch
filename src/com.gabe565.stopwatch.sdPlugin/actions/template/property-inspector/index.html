@@ -77,6 +77,16 @@
           <label for="indicator_color" class="sdpi-item-label" data-localize>Indicator Color</label>
           <input id="indicator_color" type="color" class="sdpi-item-value" name="indicatorColor" />
         </div>
+
+        <div class="sdpi-item" id="select_single">
+          <label for="update_interval" class="sdpi-item-label">Update Interval</label>
+          <select class="sdpi-item-value select" id="update_interval" name="updateInterval">
+            <option value="1000">Slowest (1 update per second)</option>
+            <option value="500">Slower (2 updates per second)</option>
+            <option value="250">Normal (4 updates per second)</option>
+            <option value="200">Faster (5 updates per second)</option>
+          </select>
+        </div>
       </form>
     </div>
 

@@ -32,6 +32,9 @@ class Stopwatch {
     if (this.template.loaded) {
       this.configureFrame();
     }
+    if (this.tickInterval) {
+      this.beginTick();
+    }
   }
 
   get settings() {
@@ -65,11 +68,12 @@ class Stopwatch {
   beginTick() {
     this.tick();
     this.stopTick();
-    this.tickInterval = setInterval(() => this.tick(), 1000);
+    this.tickInterval = setInterval(() => this.tick(), this.settings.updateInterval || 250);
   }
 
   stopTick() {
     clearInterval(this.tickInterval);
+    this.tickInterval = null;
   }
 
   configureFrame(render = true) {

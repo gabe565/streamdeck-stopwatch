@@ -12,6 +12,11 @@
     "Frame Color": "Frame Color",
     "Indicator": "Indicator",
     "Enabled": "Enabled",
-    "Indicator Color": "Indicator Color"
+    "Indicator Color": "Indicator Color",
+    "Update Interval": "Update Interval",
+    "Slowest (1 update per second)": "Slowest (1 update per second)",
+    "Slower (2 updates per second)": "Slower (2 updates per second)",
+    "Normal (4 updates per second)": "Normal (4 updates per second)",
+    "Faster (5 updates per second)": "Faster (5 updates per second)"
   }
 }
