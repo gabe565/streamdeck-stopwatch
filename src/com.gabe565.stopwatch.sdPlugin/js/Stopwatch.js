@@ -11,7 +11,6 @@ class Stopwatch {
         console.error(err);
       });
     this.context = context;
-    this.tickInterval = null;
     this.state = States.Stopped;
     this.settings = settings;
   }
