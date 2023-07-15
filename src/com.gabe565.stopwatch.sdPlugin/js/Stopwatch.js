@@ -106,7 +106,6 @@ class Stopwatch {
   stop() {
     console.log("Stopping stopwatch");
     this.stopTick();
-    $SD.clearTitle(this.context);
     this.state = States.Stopped;
   }
 
