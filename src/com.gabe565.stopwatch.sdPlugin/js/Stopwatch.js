@@ -60,7 +60,7 @@ class Stopwatch {
 
   tick() {
     if (this.template.loaded) {
-      const encoded = this.template.renderBase64(this.startTime);
+      const encoded = this.template.renderBase64(this.startTime, this.settings);
       $SD.setImage(this.context, encoded, 1);
     }
   }

@@ -31,10 +31,12 @@ class Template {
     this.dom.querySelector("circle").cy.baseVal.value = -1 * Math.cos(degrees) * 24.25 + 39.25;
   }
 
-  renderBase64(startTime) {
+  renderBase64(startTime, settings) {
     const difference = new Date() - startTime;
     this.dom.querySelector("text").innerHTML = this.formattedTime(difference);
-    this.moveIndicator(difference);
+    if (settings.indicatorEnabled) {
+      this.moveIndicator(difference);
+    }
     const contents = new XMLSerializer().serializeToString(this.dom);
     return `data:image/svg+xml;base64,${btoa(contents)}`;
   }
