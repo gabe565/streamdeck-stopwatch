@@ -55,23 +55,9 @@ class Stopwatch {
     return this._state;
   }
 
-  get formattedTime() {
-    let seconds = Math.floor((new Date() - this.startTime) / 1000);
-    let minutes = Math.floor(seconds / 60);
-
-    if (minutes >= 60) {
-      const hours = Math.floor(minutes / 60);
-      minutes %= 60;
-      return `${hours}:${minutes.toString().padStart(2, "0")}`;
-    } else {
-      seconds %= 60;
-      return `${minutes}:${seconds.toString().padStart(2, "0")}`;
-    }
-  }
-
   tick() {
     if (this.template.loaded) {
-      const encoded = this.template.renderBase64(this.formattedTime);
+      const encoded = this.template.renderBase64(this.startTime);
       $SD.setImage(this.context, encoded, 1);
     }
   }
@@ -90,6 +76,8 @@ class Stopwatch {
     if (this.template.loaded) {
       this.template.setStyle("path", "fill", this.settings.frameColor);
       this.template.setStyle("text", "fill", this.settings.textColor);
+      this.template.setStyle("circle", "display", this.settings.indicatorEnabled ? "" : "none");
+      this.template.setStyle("circle", "fill", this.settings.indicatorColor);
       if (render) {
         this.tick();
       }

@@ -15,4 +15,6 @@ const DefaultSettings = {
   holdToClearTime: 300,
   frameColor: "#547cff",
   textColor: "#ffffff",
+  indicatorEnabled: "on",
+  indicatorColor: "#ee4b2b",
 };

@@ -9,6 +9,9 @@
   "Localization": {
     "Hold to Clear Time": "Hold to Clear Time",
     "Text Color": "Text Color",
-    "Frame Color": "Frame Color"
+    "Frame Color": "Frame Color",
+    "Indicator": "Indicator",
+    "Enabled": "Enabled",
+    "Indicator Color": "Indicator Color"
   }
 }
