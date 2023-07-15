@@ -15,77 +15,102 @@
     <div class="sdpi-wrapper">
       <hr class="tab-separator" />
       <form id="property-inspector">
-        <div type="radio" class="sdpi-item">
-          <div class="sdpi-item-label">Short Press Action</div>
-          <div class="sdpi-item-value">
-            <span class="sdpi-item-child">
-              <input id="short_reset" type="radio" name="shortPressAction" value="reset" />
-              <label for="short_reset" class="sdpi-item-label"><span></span>Reset</label>
-            </span>
-            <span class="sdpi-item-child">
-              <input id="short_pause" type="radio" name="shortPressAction" value="pause" />
-              <label for="short_pause" class="sdpi-item-label"><span></span>Pause</label>
-            </span>
+        <div type="group" class="sdpi-item">
+          <div class="sdpi-item-label">Colors</div>
+          <div type="color" class="sdpi-item">
+            <label for="text_color" class="sdpi-item-label" data-localize>Text Color</label>
+            <input id="text_color" type="color" class="sdpi-item-value" name="textColor" />
+          </div>
+
+          <div type="color" class="sdpi-item">
+            <label for="frame_color" class="sdpi-item-label" data-localize>Frame Color</label>
+            <input id="frame_color" type="color" class="sdpi-item-value" name="frameColor" />
+          </div>
+
+          <div type="color" class="sdpi-item">
+            <label for="indicator_color" class="sdpi-item-label" data-localize
+              >Indicator Color</label
+            >
+            <input
+              id="indicator_color"
+              type="color"
+              class="sdpi-item-value"
+              name="indicatorColor"
+            />
           </div>
         </div>
 
-        <div type="radio" class="sdpi-item">
-          <div class="sdpi-item-label">Long Press Action</div>
-          <div class="sdpi-item-value">
-            <span class="sdpi-item-child">
-              <input id="long_reset" type="radio" name="longPressAction" value="reset" />
-              <label for="long_reset" class="sdpi-item-label"><span></span>Reset</label>
-            </span>
-            <span class="sdpi-item-child">
-              <input id="long_pause" type="radio" name="longPressAction" value="pause" />
-              <label for="long_pause" class="sdpi-item-label"><span></span>Pause</label>
-            </span>
+        <div type="group" class="sdpi-item">
+          <div class="sdpi-item-label">Visibility</div>
+          <div type="checkbox" class="sdpi-item">
+            <div class="sdpi-item-label">Indicator</div>
+            <input
+              class="sdpi-item-value"
+              id="indicator_enabled"
+              type="checkbox"
+              name="indicatorEnabled"
+            />
+            <label for="indicator_enabled"><span></span>Enabled</label>
           </div>
         </div>
 
-        <div type="range" class="sdpi-item">
-          <label for="long_press_time" class="sdpi-item-label" data-localize>Long Press Time</label>
-          <div class="sdpi-item-value">
-            <span class="clickable">150ms</span>
-            <input type="range" min="150" max="500" id="long_press_time" name="longPressTime" />
-            <span class="clickable">700ms</span>
+        <div type="group" class="sdpi-item">
+          <div class="sdpi-item-label">Actions</div>
+          <div type="radio" class="sdpi-item">
+            <div class="sdpi-item-label">Short Press Action</div>
+            <div class="sdpi-item-value">
+              <span class="sdpi-item-child">
+                <input id="short_reset" type="radio" name="shortPressAction" value="reset" />
+                <label for="short_reset" class="sdpi-item-label"><span></span>Reset</label>
+              </span>
+              <span class="sdpi-item-child">
+                <input id="short_pause" type="radio" name="shortPressAction" value="pause" />
+                <label for="short_pause" class="sdpi-item-label"><span></span>Pause</label>
+              </span>
+            </div>
+          </div>
+
+          <div type="radio" class="sdpi-item">
+            <div class="sdpi-item-label">Long Press Action</div>
+            <div class="sdpi-item-value">
+              <span class="sdpi-item-child">
+                <input id="long_reset" type="radio" name="longPressAction" value="reset" />
+                <label for="long_reset" class="sdpi-item-label"><span></span>Reset</label>
+              </span>
+              <span class="sdpi-item-child">
+                <input id="long_pause" type="radio" name="longPressAction" value="pause" />
+                <label for="long_pause" class="sdpi-item-label"><span></span>Pause</label>
+              </span>
+            </div>
           </div>
         </div>
 
-        <div type="color" class="sdpi-item">
-          <label for="text_color" class="sdpi-item-label" data-localize>Text Color</label>
-          <input id="text_color" type="color" class="sdpi-item-value" name="textColor" />
-        </div>
+        <div type="group" class="sdpi-item" id="messagegroup">
+          <div class="sdpi-item-label">Other</div>
+          <details>
+            <summary>Advanced Settings</summary>
 
-        <div type="color" class="sdpi-item">
-          <label for="frame_color" class="sdpi-item-label" data-localize>Frame Color</label>
-          <input id="frame_color" type="color" class="sdpi-item-value" name="frameColor" />
-        </div>
+            <div class="sdpi-item" id="select_single">
+              <label for="update_interval" class="sdpi-item-label">Update Interval</label>
+              <select class="sdpi-item-value select" id="update_interval" name="updateInterval">
+                <option value="1000">Slowest (1 update per second)</option>
+                <option value="500">Slower (2 updates per second)</option>
+                <option value="250">Normal (4 updates per second)</option>
+                <option value="200">Faster (5 updates per second)</option>
+              </select>
+            </div>
 
-        <div type="checkbox" class="sdpi-item">
-          <div class="sdpi-item-label">Indicator</div>
-          <input
-            class="sdpi-item-value"
-            id="indicator_enabled"
-            type="checkbox"
-            name="indicatorEnabled"
-          />
-          <label for="indicator_enabled"><span></span>Enabled</label>
-        </div>
-
-        <div type="color" class="sdpi-item">
-          <label for="indicator_color" class="sdpi-item-label" data-localize>Indicator Color</label>
-          <input id="indicator_color" type="color" class="sdpi-item-value" name="indicatorColor" />
-        </div>
-
-        <div class="sdpi-item" id="select_single">
-          <label for="update_interval" class="sdpi-item-label">Update Interval</label>
-          <select class="sdpi-item-value select" id="update_interval" name="updateInterval">
-            <option value="1000">Slowest (1 update per second)</option>
-            <option value="500">Slower (2 updates per second)</option>
-            <option value="250">Normal (4 updates per second)</option>
-            <option value="200">Faster (5 updates per second)</option>
-          </select>
+            <div type="range" class="sdpi-item">
+              <label for="long_press_time" class="sdpi-item-label" data-localize
+                >Long Press Time</label
+              >
+              <div class="sdpi-item-value">
+                <span class="clickable">150ms</span>
+                <input type="range" min="150" max="500" id="long_press_time" name="longPressTime" />
+                <span class="clickable">700ms</span>
+              </div>
+            </div>
+          </details>
         </div>
       </form>
     </div>
