@@ -3,7 +3,7 @@ class Template {
     this.loaded = false;
   }
 
-  formattedTime(difference) {
+  formattedTime(difference, secondsEnabled) {
     let seconds = Math.floor(difference / 1000);
     let minutes = Math.floor(seconds / 60);
 
@@ -12,8 +12,12 @@ class Template {
       minutes %= 60;
       return `${hours}:${minutes.toString().padStart(2, "0")}`;
     } else {
-      seconds %= 60;
-      return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+      if (secondsEnabled) {
+        seconds %= 60;
+        return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+      } else {
+        return `${minutes}`;
+      }
     }
   }
 
@@ -33,7 +37,10 @@ class Template {
 
   renderBase64(startTime, settings) {
     const difference = new Date() - startTime;
-    this.dom.querySelector("text").innerHTML = this.formattedTime(difference);
+    this.dom.querySelector("text").innerHTML = this.formattedTime(
+      difference,
+      settings.secondsEnabled,
+    );
     if (settings.indicatorEnabled) {
       this.moveIndicator(difference);
     }

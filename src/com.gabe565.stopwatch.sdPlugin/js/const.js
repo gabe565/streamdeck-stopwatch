@@ -13,6 +13,7 @@ const DefaultSettings = {
   frameColor: "#547cff",
   textColor: "#ffffff",
   indicatorColor: "#ee4b2b",
+  secondsEnabled: "on",
   indicatorEnabled: "on",
   shortPressAction: Actions.Reset,
   longPressAction: Actions.Pause,
