@@ -21,3 +21,10 @@ $PI.onConnected((jsn) => {
     }),
   );
 });
+
+document.querySelector("#reset").addEventListener("click", () => {
+  const form = document.querySelector("#property-inspector");
+  Utils.setFormValue(DefaultSettings, form);
+  const value = Utils.getFormValue(form);
+  $PI.setSettings(value);
+});
