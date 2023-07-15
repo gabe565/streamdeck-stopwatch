@@ -5,7 +5,7 @@ class Stopwatch {
     this.template = new Template();
     this.template
       .load("actions/template/assets/state_1.svg")
-      .then(() => this.configureFrame(false))
+      .then(() => this.configureFrame())
       .catch((err) => {
         $SD.showAlert(this.context);
         console.error(err);
@@ -76,13 +76,13 @@ class Stopwatch {
     this.tickInterval = null;
   }
 
-  configureFrame(render = true) {
+  configureFrame() {
     if (this.template.loaded) {
       this.template.setStyle("path", "fill", this.settings.frameColor);
       this.template.setStyle("text", "fill", this.settings.textColor);
       this.template.setStyle("circle", "display", this.settings.indicatorEnabled ? "" : "none");
       this.template.setStyle("circle", "fill", this.settings.indicatorColor);
-      if (render) {
+      if (this.tickInterval) {
         this.tick();
       }
     }
