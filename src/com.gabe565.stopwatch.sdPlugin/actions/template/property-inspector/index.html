@@ -14,60 +14,35 @@
   <body>
     <div class="sdpi-wrapper">
       <form id="property-inspector">
-        <div type="group" class="sdpi-item">
-          <div class="sdpi-item-label">Colors</div>
-          <div type="color" class="sdpi-item">
-            <label for="text_color" class="sdpi-item-label" data-localize>Text Color</label>
-            <input id="text_color" type="color" class="sdpi-item-value" name="textColor" />
-          </div>
-
-          <div type="color" class="sdpi-item">
-            <label for="frame_color" class="sdpi-item-label" data-localize>Frame Color</label>
-            <input id="frame_color" type="color" class="sdpi-item-value" name="frameColor" />
-          </div>
-
-          <div type="color" class="sdpi-item">
-            <label for="indicator_color" class="sdpi-item-label" data-localize
-              >Indicator Color</label
-            >
-            <input
-              id="indicator_color"
-              type="color"
-              class="sdpi-item-value"
-              name="indicatorColor"
-            />
-          </div>
+        <div type="color" class="sdpi-item">
+          <label for="text_color" class="sdpi-item-label" data-localize>Text Color</label>
+          <input id="text_color" type="color" class="sdpi-item-value" name="textColor" />
         </div>
 
-        <div type="group" class="sdpi-item">
-          <div class="sdpi-item-label">Visibility</div>
-          <div type="checkbox" class="sdpi-item">
-            <div class="sdpi-item-label">Seconds</div>
-            <input
-              class="sdpi-item-value"
-              id="seconds_enabled"
-              type="checkbox"
-              name="secondsEnabled"
-            />
-            <label for="seconds_enabled"><span></span>Enabled</label>
-          </div>
+        <div type="color" class="sdpi-item">
+          <label for="frame_color" class="sdpi-item-label" data-localize>Frame Color</label>
+          <input id="frame_color" type="color" class="sdpi-item-value" name="frameColor" />
+        </div>
 
-          <div type="checkbox" class="sdpi-item">
-            <div class="sdpi-item-label">Indicator</div>
-            <input
-              class="sdpi-item-value"
-              id="indicator_enabled"
-              type="checkbox"
-              name="indicatorEnabled"
-            />
-            <label for="indicator_enabled"><span></span>Enabled</label>
+        <div type="color" class="sdpi-item">
+          <label for="indicator_color" class="sdpi-item-label" data-localize>Indicator Color</label>
+          <input id="indicator_color" type="color" class="sdpi-item-value" name="indicatorColor" />
+        </div>
+
+        <div type="checkbox" class="sdpi-item">
+          <div class="sdpi-item-label">Shown Items</div>
+          <div class="sdpi-item-value">
+            <input id="seconds_enabled" type="checkbox" name="secondsEnabled" />
+            <label for="seconds_enabled"><span></span>Seconds</label>
+            <input id="indicator_enabled" type="checkbox" name="indicatorEnabled" />
+            <label for="indicator_enabled"><span></span>Indicator</label>
           </div>
         </div>
 
         <div type="group" class="sdpi-item">
           <div class="sdpi-item-label">Actions</div>
           <div type="radio" class="sdpi-item">
-            <div class="sdpi-item-label">Short Press Action</div>
+            <div class="sdpi-item-label">Short Press</div>
             <div class="sdpi-item-value">
               <span class="sdpi-item-child">
                 <input id="short_reset" type="radio" name="shortPressAction" value="reset" />
@@ -81,7 +56,7 @@
           </div>
 
           <div type="radio" class="sdpi-item">
-            <div class="sdpi-item-label">Long Press Action</div>
+            <div class="sdpi-item-label">Long Press</div>
             <div class="sdpi-item-value">
               <span class="sdpi-item-child">
                 <input id="long_reset" type="radio" name="longPressAction" value="reset" />
