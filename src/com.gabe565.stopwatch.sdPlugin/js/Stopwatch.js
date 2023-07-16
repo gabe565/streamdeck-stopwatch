@@ -115,10 +115,9 @@ class Stopwatch {
   }
 
   keyDown() {
-    this.cancelKeyUp = false;
-    if (this.state !== States.Stopped) {
-      this.pressTimeout = setTimeout(() => {
-        this.cancelKeyUp = true;
+    this.keyDownTimeout = setTimeout(() => {
+      if (this.state !== States.Stopped) {
+        this.keyDownTimeout = null;
         if (this.settings.longPressAction === Actions.Reset) {
           this.stop();
         } else if (this.settings.longPressAction === Actions.Pause) {
@@ -128,13 +127,18 @@ class Stopwatch {
             this.unpause();
           }
         }
-      }, this.settings.longPressTime);
-    }
+      }
+    }, this.settings.longPressTime);
+  }
+
+  cancelKeyDown() {
+    clearTimeout(this.keyDownTimeout);
+    this.keyDownTimeout = null;
   }
 
   keyUp() {
-    if (!this.cancelKeyUp) {
-      clearTimeout(this.pressTimeout);
+    if (this.keyDownTimeout) {
+      this.cancelKeyDown();
       if (this.state === States.Stopped) {
         this.start();
       } else if (this.state === States.Running) {
