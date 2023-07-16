@@ -35,6 +35,7 @@
           "Image": "actions/template/assets/state_1"
         }
       ],
+      "SupportedInMultiActions": false,
       "Tooltip": "Stopwatch for the Stream Deck",
       "UUID": "com.gabe565.stopwatch.action",
       "PropertyInspectorPath": "actions/template/property-inspector/index.html"
