@@ -48,7 +48,19 @@ class Template {
     return `data:image/svg+xml;base64,${btoa(contents)}`;
   }
 
-  setStyle(selector, style, value) {
-    this.dom.querySelector(selector).style[style] = value;
+  setFrameColor(color) {
+    this.dom.querySelector("path").style.fill = color;
+  }
+
+  setTextColor(color) {
+    this.dom.querySelector("text").style.fill = color;
+  }
+
+  setShowIndicator(shown) {
+    this.dom.querySelector("circle").style.display = shown ? "" : "none";
+  }
+
+  setIndicatorColor(color) {
+    this.dom.querySelector("circle").style.fill = color;
   }
 }
