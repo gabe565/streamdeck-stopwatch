@@ -23,7 +23,8 @@ class Template {
 
   async load(url) {
     const data = await fetch(url);
-    const text = await data.text();
+    let text = await data.text();
+    text = text.replaceAll(/>\s+</g, "><");
     this.dom = new DOMParser().parseFromString(text, "image/svg+xml");
     this.loaded = true;
   }
