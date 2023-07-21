@@ -108,6 +108,7 @@ class Stopwatch {
     console.log("Stopping stopwatch");
     this.stopTick();
     this.state = States.Stopped;
+    $SD.setImage(this.context);
     delete stopwatchMap[this.context];
   }
 
