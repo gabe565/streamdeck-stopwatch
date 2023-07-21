@@ -16,7 +16,7 @@ class Stopwatch {
       });
 
     this.context = context;
-    this.state = States.Stopped;
+    this._state = States.Stopped;
     this.settings = settings;
 
     stopwatchMap[context] = this;
