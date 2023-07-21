@@ -77,10 +77,10 @@ class Stopwatch {
 
   configureFrame() {
     if (this.template.loaded) {
-      this.template.setFrameColor(this.settings.frameColor);
-      this.template.setTextColor(this.settings.textColor);
-      this.template.setShowIndicator(this.settings.indicatorEnabled);
-      this.template.setIndicatorColor(this.settings.indicatorColor);
+      this.template.frameColor = this.settings.frameColor;
+      this.template.textColor = this.settings.textColor;
+      this.template.showIndicator = this.settings.indicatorEnabled;
+      this.template.indicatorColor = this.settings.indicatorColor;
       if (this.tickInterval) {
         this.tick();
       }
