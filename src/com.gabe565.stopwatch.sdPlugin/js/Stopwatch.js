@@ -2,6 +2,10 @@ const stopwatchMap = {};
 
 class Stopwatch {
   constructor({ context, payload: { settings } }) {
+    if (stopwatchMap[context]) {
+      return stopwatchMap[context];
+    }
+
     this.template = new Template();
     this.template
       .load("actions/template/assets/state_1.svg")
@@ -10,16 +14,22 @@ class Stopwatch {
         $SD.showAlert(this.context);
         console.error(err);
       });
+
     this.context = context;
     this.state = States.Stopped;
     this.settings = settings;
+
+    stopwatchMap[context] = this;
   }
 
-  static Get(data) {
-    if (!stopwatchMap[data.context]) {
-      stopwatchMap[data.context] = new Stopwatch(data);
+  static Exists(context) {
+    return !!stopwatchMap[context];
+  }
+
+  static IfExists(context, fn) {
+    if (this.Exists(context)) {
+      fn(stopwatchMap[context]);
     }
-    return stopwatchMap[data.context];
   }
 
   set settings(settings) {
@@ -98,6 +108,7 @@ class Stopwatch {
     console.log("Stopping stopwatch");
     this.stopTick();
     this.state = States.Stopped;
+    delete stopwatchMap[this.context];
   }
 
   pause() {
