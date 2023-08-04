@@ -12,8 +12,18 @@ A stopwatch plugin for the Elgato Stream Deck.
 - Start/stop a stopwatch with a single press
 - Pause a stopwatch with a long press
 - Configuration:
-  - Short Press Action
-  - Long Press Action
-  - Long Press Time
-  - Text Color
-  - Frame Color
+  - Text color
+  - Frame color
+  - Seconds indicator color
+  - Show/hide seconds
+  - Show/hide seconds indicator
+  - Short press action
+  - Long press action
+  - Long press time
+
+## Installation
+
+### Manual Installation
+
+- Download the latest plugin release [here](https://github.com/gabe565/streamdeck-stopwatch/releases/latest)
+- Open downloaded `.sdplugin` file. It will be automatically installed to your Stream Deck application.
