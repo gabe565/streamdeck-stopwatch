@@ -15,8 +15,8 @@ const DefaultSettings = {
   indicatorColor: "#ee4b2b",
   secondsEnabled: "on",
   indicatorEnabled: "on",
-  shortPressAction: Actions.Reset,
-  longPressAction: Actions.Pause,
+  shortPressAction: Actions.Pause,
+  longPressAction: Actions.Reset,
   longPressTime: 300,
   updateInterval: 250,
 };
