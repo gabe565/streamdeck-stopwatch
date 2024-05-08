@@ -40,9 +40,17 @@ jobs:
     permissions:
       contents: write
     steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
       - uses: actions/download-artifact@v4
         with:
           name: release
-      - uses: softprops/action-gh-release@v2
+      - name: Generate Changelog
+        id: changelog
+        uses: gabe565/changelog-generator@v0
+      - name: Release
+        uses: softprops/action-gh-release@v2
         with:
+          body: ${{ steps.changelog.outputs.changelog }}
           files: com.gabe565.stopwatch.streamDeckPlugin
