@@ -3,7 +3,7 @@
   "Author": "Gabe Cook",
   "CodePath": "index.html",
   "Description": "Stopwatch for the Stream Deck",
-  "Name": "Stopwatch",
+  "Name": "Stopwatch Timekeeper",
   "Icon": "actions/template/assets/icon",
   "URL": "https://github.com/gabe565/streamdeck-stopwatch",
   "Version": "1.0.0",
