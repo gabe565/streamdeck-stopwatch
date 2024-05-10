@@ -13,7 +13,14 @@ stopwatchAction.onKeyDown((data) => new Stopwatch(data).keyDown());
 stopwatchAction.onKeyUp((data) => new Stopwatch(data).keyUp());
 
 stopwatchAction.onWillDisappear((data) => {
-  Stopwatch.IfExists(data.context, (stopwatch) => (stopwatch.active = false));
+  Stopwatch.IfExists(data.context, (stopwatch) => {
+    if (Object.keys(data.payload.settings).length === 0) {
+      stopwatch.stop();
+      stopwatch.delete();
+    } else {
+      stopwatch.active = false;
+    }
+  });
 });
 
 stopwatchAction.onWillAppear((data) => {

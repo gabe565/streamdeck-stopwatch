@@ -109,7 +109,6 @@ class Stopwatch {
     this.stopTick();
     this.state = States.Stopped;
     $SD.setImage(this.context);
-    delete stopwatchMap[this.context];
   }
 
   pause() {
@@ -182,5 +181,9 @@ class Stopwatch {
     } else {
       this.stopTick();
     }
+  }
+
+  delete() {
+    delete stopwatchMap[this.context];
   }
 }
