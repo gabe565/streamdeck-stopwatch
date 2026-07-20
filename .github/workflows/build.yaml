@@ -7,8 +7,8 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -21,17 +21,17 @@ jobs:
     runs-on: macos-latest
     needs: lint
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           submodules: true
       - if: startsWith(github.ref, 'refs/tags/')
         run: |
           export VERSION="${GITHUB_REF_NAME#v}"
           yq --inplace '.Version = strenv(VERSION)' src/*/manifest.json
-      - uses: AdamCarballo/streamdeck-distribution-tool@v1.0.2
+      - uses: AdamCarballo/streamdeck-distribution-tool@a626f1d54feef9d6f039740f1d0c5d59fcae58b3 # v1.0.2
         with:
           input: src/com.gabe565.stopwatch.sdPlugin
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: release
           path: com.gabe565.stopwatch.streamDeckPlugin
@@ -44,18 +44,18 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-depth: 0
           submodules: true
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           name: release
       - name: Generate Changelog
         id: changelog
-        uses: gabe565/changelog-generator@v1
+        uses: gabe565/changelog-generator@733bb2c02fab0bb0e2dd9a059e0dc9f668d05c95 # v1
       - name: Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
         with:
           body: ${{ steps.changelog.outputs.changelog }}
           files: com.gabe565.stopwatch.streamDeckPlugin
