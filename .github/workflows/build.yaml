@@ -55,7 +55,7 @@ jobs:
         id: changelog
         uses: gabe565/changelog-generator@v1
       - name: Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3 # v3.0.4
         with:
           body: ${{ steps.changelog.outputs.changelog }}
           files: com.gabe565.stopwatch.streamDeckPlugin
